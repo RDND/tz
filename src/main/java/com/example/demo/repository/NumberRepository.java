@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional(readOnly = true)
-public interface UserRepository extends JpaRepository<Number, Integer> {
+public interface NumberRepository extends JpaRepository<Number, Integer> {
 
     @RestResource(rel = "all", path = "all")
     List<Number> findAll();
