@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.util.ProxyUtils;
-//import org.springframework.hateoas.Identifiable;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -16,12 +15,11 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
-public abstract class BaseEntity implements Persistable<Integer>, Identifiable<Integer> {//нужен чтоб SpringDataRest корректно формировал урлы на ресурсы для связанных зависимостей
+public abstract class BaseEntity implements Persistable<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    // doesn't work for hibernate lazy proxy
     public int id() {
         Assert.notNull(id, "Entity must has id");
         return id;
@@ -33,7 +31,6 @@ public abstract class BaseEntity implements Persistable<Integer>, Identifiable<I
         return id == null;
     }
 
-    //    https://stackoverflow.com/questions/1638723
     @Override
     public boolean equals(Object o) {
         if (this == o) {
