@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Number;
+import com.example.demo.model.Numb;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional(readOnly = true)
-public interface NumberRepository extends JpaRepository<Number, Integer> {
+public interface NumbRepository extends JpaRepository<Numb, Integer> {
 
     @RestResource(rel = "all", path = "all")
-    List<Number> findAll();
+    List<Numb> findAll();
 }

@@ -6,13 +6,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "numbers")
+@Table(name = "numbs")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class Number extends BaseEntity {
+public class Numb extends BaseEntity {
 
     @Column(name = "value", nullable = false, unique = true)
     @NotEmpty
